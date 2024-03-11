@@ -12,22 +12,22 @@ import { LogLevel } from '@azure/msal-browser';
  */
 export const b2cPolicies = {
     names: {
-        signUpSignIn: 'B2C_1_susi_v2',
-        forgotPassword: 'B2C_1_reset_v3',
-        editProfile: 'B2C_1_edit_profile_v2',
+        signUpSignIn: 'b2c_1_susi',
+        forgotPassword: 'B2C_1_reset',
+        editProfile: 'b2c_1_edit_profile',
     },
     authorities: {
         signUpSignIn: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi_v2',
+            authority: 'https://enterprisedemoorg.b2clogin.com/enterprisedemoorg.onmicrosoft.com/b2c_1_susi',
         },
         forgotPassword: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_reset_v3',
+            authority: 'https://enterprisedemoorg.b2clogin.com/enterprisedemoorg.onmicrosoft.com/b2c_1_reset',
         },
         editProfile: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile_v2',
+            authority: 'https://enterprisedemoorg.b2clogin.com/enterprisedemoorg.onmicrosoft.com/b2c_1_edit_profile',
         },
     },
-    authorityDomain: 'fabrikamb2c.b2clogin.com',
+    authorityDomain: 'enterprisedemoorg.b2clogin.com',
 };
 
 /**
@@ -37,10 +37,10 @@ export const b2cPolicies = {
  */
 export const msalConfig = {
     auth: {
-        clientId: '09dd92cf-78ba-4c25-94b2-ec3f3ef84352', // This is the ONLY mandatory field that you need to supply.
+        clientId: 'f8f136e8-4ba2-40f2-af84-d64f12a125fe', // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose SUSI as your default authority.
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
-        redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+        redirectUri: '/redirect', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
         navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
     },
